@@ -20,6 +20,6 @@ const contactSchema = new mongoose.Schema(
 );
 
 // model은 다른 파일에서 데이터 넣고 뺄 때 사용
-const Contact = mongoose.model("Contact", contactSchema, );
+const Contact = mongoose.model("Contact", contactSchema);
 
 module.exports = Contact;

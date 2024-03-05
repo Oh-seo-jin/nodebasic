@@ -1,27 +1,25 @@
 const express = require("express");
 const dbConnect = require("./config/dbConnect")
 // const errorhandler = require("./middlewares/errorhandler")
+
 const app = express();
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 const port = 3000;
+
+app.use(express.static("./public"));
+
 dbConnect();
 
-const requsetTime = (req, res, next) => {
-  let today = new Date();
-  let now = today.toLocaleTimeString();
-  req.requestTime = now;
-  next();
-}
-
-app.use(requsetTime);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   const resText = `Hello Node!\n요청시간: ${req.requestTime}`
   res.send(resText);
 });
-
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
 
 // routes
 app.use("/contacts", require("./routes/contactRoutes"));
