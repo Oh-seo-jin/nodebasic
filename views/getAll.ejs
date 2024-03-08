@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style1.css"/>
 </head>
 
 <body>
@@ -21,10 +22,10 @@
   <ul>
     <% contacts.forEach(contact=> { %>
       <li>
-        <string>Name: </string><%= contact.name %>
+        <strong>Name: </strong><%= contact.name %>
       </li>
       <li>
-        <string>Email: </string><%= contact.email %>
+        <strong>Email: </strong><%= contact.email %>
       </li>
       <% }) %>
   </ul>
