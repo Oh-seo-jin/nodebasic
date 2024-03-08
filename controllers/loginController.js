@@ -1,9 +1,10 @@
+require("dotenv").config();
+const jwtSecret = process.env.JWT_SECRET;
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
-require("dotenv").config();
 const jwt = require("jsonwebtoken");
-const jwtSecret = process.env.JWT_SECRET;
+
 
 // @desc Get Login page
 // @route GET /
@@ -24,6 +25,7 @@ const loginUser = asyncHandler(async (req, res) => {
     return res.status(401).json({ message: "비밀번호가 일치하지 않습니다..."});
   }
   // 사용자 ID를 기반으로 JWT 토큰 생성
+  console.log("ㅁ ", jwtSecret);
   const token = jwt.sign({ id: user._id }, jwtSecret);
   res.cookie("token", token, { httpOnly: true });
   res.redirect("/contacts");
